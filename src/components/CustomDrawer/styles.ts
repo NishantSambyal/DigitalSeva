@@ -1,22 +1,22 @@
-import { Platform, StyleSheet } from 'react-native';
-import {
-  fontScale,
-  horizontalScale,
-  verticalScale,
-} from 'src/helpers/basicStyles';
+import { StyleSheet } from 'react-native';
+import { fontScale, horizontalScale } from 'src/helpers/basicStyles';
 import { Theme } from 'src/theme';
 export default (theme: Theme) =>
   StyleSheet.create({
     mainContainer: {
-      paddingTop: Platform.OS === 'ios' ? verticalScale(40) : verticalScale(15),
-      backgroundColor: theme.colors.blue,
+      flex: 1,
+    },
+    flexRow: {
       flexDirection: 'row',
-      alignItems: 'center',
-      padding: horizontalScale(15),
     },
     containerStyle: {
       backgroundColor: theme.colors.blue,
     },
+    emailText: {
+      color: '#fff',
+      marginRight: 5,
+    },
+    drawerItemContainer: { flex: 1, backgroundColor: '#fff', paddingTop: 10 },
     profileView: {
       padding: horizontalScale(10),
     },
@@ -24,5 +24,16 @@ export default (theme: Theme) =>
       color: theme.colors.white,
       fontSize: fontScale(18),
       marginBottom: 5,
+    },
+    bottomOptionWrapper: {
+      padding: 20,
+      borderTopWidth: 1,
+      borderTopColor: '#ccc',
+    },
+    bottomOptionText: {
+      paddingVertical: 15,
+      flexDirection: 'row',
+      alignItems: 'center',
+      marginLeft: 5,
     },
   });

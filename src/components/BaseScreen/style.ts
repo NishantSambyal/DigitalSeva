@@ -11,6 +11,7 @@ export default (theme: Theme) =>
       flex: 1,
       // paddingBottom: verticalScale(30),
     },
+    scrollContainer: { flexGrow: 1 },
     container: {
       flex: 1,
       backgroundColor: theme.colors.blue,

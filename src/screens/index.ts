@@ -1,5 +1,4 @@
-import Dashboard from './Dashboard';
-import Login from './Login';
-import UploadDocument from './UploadDocument';
+import AuthScreens from './AuthScreens';
+import HomeScreens from './HomeScreen';
 
-export default { Dashboard, UploadDocument, Login };
+export { HomeScreens, AuthScreens };

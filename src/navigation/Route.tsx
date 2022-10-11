@@ -1,16 +1,22 @@
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
+import { useSelector } from 'react-redux';
 import CustomDrawer from 'src/components/CustomDrawer';
-import screens from 'src/screens';
+import { AuthScreens, HomeScreens } from 'src/screens';
+import { LoginData } from 'src/screens/AuthScreens/Login/TsObject/LoginResponse';
+import { RootState } from 'src/store/reducers';
 import { useTheme } from 'src/theme';
 import { RootStackProps } from './types';
 
 const Route = () => {
   const Stack = createNativeStackNavigator<RootStackProps>();
   const Drawer = createDrawerNavigator();
+  const loginData: LoginData = useSelector(
+    (state: RootState) => state.loginReducer?.loginData?.data,
+  );
+  const isLoggedIn = loginData?.data?.api_token || loginData?.token;
 
-  const isLoggedIn = true;
   const theme = useTheme();
 
   const renderDrawerScreens = () => {
@@ -27,7 +33,7 @@ const Route = () => {
               fontSize: 15,
             },
           }}>
-          <Drawer.Screen name="Dashboard" component={screens.Dashboard} />
+          <Drawer.Screen name="Dashboard" component={HomeScreens.Dashboard} />
         </Drawer.Navigator>
       </>
     );
@@ -38,7 +44,7 @@ const Route = () => {
         <Stack.Screen name="Home" component={renderDrawerScreens} />
         <Stack.Screen
           name="UploadDocument"
-          component={screens.UploadDocument}
+          component={HomeScreens.UploadDocument}
         />
       </>
     );
@@ -46,7 +52,8 @@ const Route = () => {
   const renderAuthStack = () => {
     return (
       <>
-        <Stack.Screen name="Login" component={screens.Login} />
+        <Stack.Screen name="Login" component={AuthScreens.Login} />
+        <Stack.Screen name="Register" component={AuthScreens.Register} />
       </>
     );
   };

@@ -1,4 +1,6 @@
 /* eslint @typescript-eslint/no-var-requires: "off" */
+const cancel = require('./cancel.png');
+const checked = require('./checked.png');
 const cv = require('./cv.png');
 const id = require('./id.png');
 const invoice = require('./invoice.png');
@@ -13,6 +15,8 @@ const ticket = require('./ticket.png');
 const upload = require('./upload.png');
 
 export {
+  cancel,
+  checked,
   pdf,
   stamp,
   cv,

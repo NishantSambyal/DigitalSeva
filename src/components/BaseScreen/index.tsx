@@ -61,7 +61,7 @@ const BaseScreen: React.FC<Props> = ({
           />
           <View style={styles.contentView}>
             <ScrollView
-              contentContainerStyle={{ flexGrow: 1 }}
+              contentContainerStyle={styles.scrollContainer}
               alwaysBounceHorizontal={false}
               keyboardShouldPersistTaps="handled"
               alwaysBounceVertical={false}

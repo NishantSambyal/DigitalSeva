@@ -1,4 +1,3 @@
-import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { Image, TouchableOpacity, View } from 'react-native';
 import {
@@ -14,12 +13,13 @@ import {
   ticket,
 } from 'src/assets/images';
 import { BaseScreen, TextView } from 'src/components';
+import useMyNavigation from 'src/helpers/useNavigation';
 import { useStyles } from 'src/theme';
 import style from './styles';
 
 const Dashboard = () => {
   const styles = useStyles(style);
-  const navigation = useNavigation();
+  const navigation = useMyNavigation();
   return (
     <BaseScreen title="Dashboard" disableBack navigationEnabled>
       <View style={styles.mainContainer}>
