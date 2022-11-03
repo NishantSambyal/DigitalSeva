@@ -10,14 +10,14 @@ export default () =>
       marginHorizontal: 16,
     },
     logoContainer: {
-      height: 200,
+      height: 250,
       justifyContent: 'center',
     },
     logo: {
       width: '100%',
     },
     formView: { height: 400 },
-    emailView: { marginTop: 40 },
+    emailView: { marginTop: 20 },
     passwordView: { marginTop: 20 },
     loginButton: { marginTop: 60, marginBottom: 20 },
   });

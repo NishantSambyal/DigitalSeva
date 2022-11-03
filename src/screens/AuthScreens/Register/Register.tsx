@@ -4,6 +4,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { useDispatch, useSelector } from 'react-redux';
 import { logo } from 'src/assets/images';
 import { AlertDialog, Button, EditText } from 'src/components';
+import useMyNavigation from 'src/helpers/useNavigation';
 import { LoginActions } from 'src/store/actions/login.actions';
 import { RootState } from 'src/store/reducers';
 import { useStyles, useTheme } from 'src/theme';
@@ -13,12 +14,14 @@ import style from './styles';
 const Register = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
+  const navigation = useMyNavigation();
   const styles = useStyles(style);
   const [name, setName] = useState('Nishant');
   const [email, setEmail] = useState('nishantsambyal123@gmail.com');
   const [phone, setPhone] = useState('1234567890');
   const [password, setPassword] = useState('Pass@123');
   const [confirmPass, setConfirmPass] = useState('Pass@123');
+  const [promoCode, setPromoCode] = useState('');
   const [alert, showAlert] = useState<boolean>(true);
   const loginReducer: LoginData = useSelector(
     (state: RootState) => state.loginReducer?.registerUser,
@@ -38,11 +41,13 @@ const Register = () => {
     payload.append('email', email);
     payload.append('phone', phone);
     payload.append('password', password);
+    payload.append('promo_code', promoCode);
     dispatch(LoginActions.registerUser(payload));
   };
   const alertHandler = () => {
     if (!loginReducer?.data?.status) {
-      dispatch(LoginActions.updateLogin(loginReducer));
+      navigation.navigate('Login');
+      // dispatch(LoginActions.updateLogin(loginReducer));
     } else {
       showAlert(false);
     }
@@ -93,6 +98,14 @@ const Register = () => {
               onChangeText={setConfirmPass}
               viewStyle={styles.emailView}
             />
+
+            <EditText
+              titleText="Promo Code (Optional)"
+              defaultValue={promoCode}
+              onChangeText={setPromoCode}
+              viewStyle={styles.emailView}
+            />
+
             <Button
               text="Register"
               isLoading={loginReducer?.loading}

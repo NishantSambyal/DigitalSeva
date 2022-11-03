@@ -6,3 +6,14 @@ export enum LoginActionType {
   CLEAR_REGISTER = 'CLEAR_REGISTER',
   UPDATE_LOGIN = 'UPDATE_LOGIN',
 }
+
+export enum DashboardActionType {
+  SLIDER_API = 'SLIDER_API',
+}
+
+export enum ProfileActionType {
+  MY_PROFILE = 'MY_PROFILE',
+  GET_STATES = 'GET_STATES',
+  GET_CITY = 'GET_CITY',
+  UPDATE_PROFILE = 'UPDATE_PROFILE',
+}

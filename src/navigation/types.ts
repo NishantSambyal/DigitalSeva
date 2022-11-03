@@ -6,6 +6,7 @@ export type RootStackProps = {
   Home;
   Login;
   Register;
+  MyProfile;
 };
 
 export type ActivitiesStack = NativeStackNavigationProp<RootStackProps>;

@@ -12,6 +12,9 @@ export default (theme: Theme) =>
       flex: 1,
       marginHorizontal: horizontalScale(16),
     },
+    contentStyle: {
+      paddingHorizontal: 16,
+    },
     flexRow: {
       flexDirection: 'row',
     },

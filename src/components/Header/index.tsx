@@ -1,7 +1,8 @@
-import { useNavigation } from '@react-navigation/native';
+import { DrawerActions } from '@react-navigation/native';
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
+import useMyNavigation from 'src/helpers/useNavigation';
 import { theme, useStyles } from 'src/theme';
 import Icon from '../Icon';
 import TextView from '../TextView';
@@ -20,7 +21,7 @@ const Header: React.FC<Props> = ({
   rightIcon,
   navigationEnabled,
 }) => {
-  const navigation = useNavigation();
+  const navigation = useMyNavigation();
   const styles = useStyles(style);
   return (
     <View style={styles.mainContainer}>
@@ -35,7 +36,7 @@ const Header: React.FC<Props> = ({
       {navigationEnabled && (
         <TouchableOpacity
           onPress={() => {
-            navigation.openDrawer();
+            navigation.dispatch(DrawerActions.openDrawer());
           }}>
           <Icon name="three-bars" family="octicon" style={styles.backArrow} />
         </TouchableOpacity>

@@ -15,7 +15,9 @@ const Route = () => {
   const loginData: LoginData = useSelector(
     (state: RootState) => state.loginReducer?.loginData?.data,
   );
-  const isLoggedIn = loginData?.data?.api_token || loginData?.token;
+  // const isLoggedIn = loginData?.data?.api_token || loginData?.token;
+  const isLoggedIn = loginData?.token;
+  // const isLoggedIn = true;
 
   const theme = useTheme();
 
@@ -42,6 +44,7 @@ const Route = () => {
     return (
       <>
         <Stack.Screen name="Home" component={renderDrawerScreens} />
+        <Stack.Screen name="MyProfile" component={HomeScreens.MyProfile} />
         <Stack.Screen
           name="UploadDocument"
           component={HomeScreens.UploadDocument}
