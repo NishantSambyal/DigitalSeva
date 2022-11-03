@@ -1,12 +1,19 @@
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
-import { Image, TextInput, TouchableWithoutFeedback, View } from 'react-native';
+import {
+  Image,
+  Share,
+  TextInput,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
 import DatePicker from 'react-native-date-picker';
 import { Dropdown } from 'react-native-element-dropdown';
 import { useDispatch, useSelector } from 'react-redux';
 // eslint-disable-next-line import/no-unresolved
 import { ProfileReducer } from 'src/store/actions/Profile/types';
-import { BaseScreen, Button, TextView } from 'src/components';
+import { BaseScreen, Button, Icon, TextView } from 'src/components';
 import Constants from 'src/constant';
 import { LoginData } from 'src/screens/AuthScreens/Login/TsObject/LoginResponse';
 import { ProfileActions } from 'src/store/actions/Profile/profile.actions';
@@ -80,6 +87,21 @@ const MyProfile = () => {
     dispatch(
       ProfileActions.updateProfile(loginData.data.user_info.id, payload),
     );
+  };
+
+  const sendInvite = async () => {
+    try {
+      const result = await Share.share({
+        message: Constants.Constants.SHARE_APP,
+      });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+        } else {
+          // shared
+        }
+      }
+    } catch (error) {}
   };
 
   return (
@@ -229,11 +251,21 @@ const MyProfile = () => {
           ) : (
             <TextView style={styles.description}>{pin}</TextView>
           )}
-
-          <TextView style={styles.title}>Promo Code</TextView>
-
-          <TextView style={styles.description}>{promoCode}</TextView>
+          <View style={styles.flexRow}>
+            <View style={styles.flex1}>
+              <TextView style={styles.title}>Promo Code</TextView>
+              <TextView style={styles.description}>{promoCode}</TextView>
+            </View>
+            <TouchableOpacity style={styles.alignSelf} onPress={sendInvite}>
+              <Icon
+                name={'share'}
+                family={'feather'}
+                style={styles.shareIcon}
+              />
+            </TouchableOpacity>
+          </View>
         </View>
+
         {isEditMode && (
           <Button
             buttonStyle={styles.submitButton}

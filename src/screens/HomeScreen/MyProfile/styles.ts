@@ -78,4 +78,18 @@ export default (theme: Theme) =>
       height: 20,
       marginHorizontal: verticalScale(8),
     },
+    shareIcon: {
+      fontSize: horizontalScale(25),
+      marginRight: horizontalScale(20),
+      color: theme.colors.red,
+    },
+    flexRow: {
+      flexDirection: 'row',
+    },
+    flex1: {
+      flex: 1,
+    },
+    alignSelf: {
+      alignSelf: 'center',
+    },
   });
