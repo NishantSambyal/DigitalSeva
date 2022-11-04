@@ -92,7 +92,7 @@ const MyProfile = () => {
   const sendInvite = async () => {
     try {
       const result = await Share.share({
-        message: Constants.Constants.SHARE_APP,
+        message: Constants.Constants.SHARE_APP + promoCode,
       });
       if (result.action === Share.sharedAction) {
         if (result.activityType) {
