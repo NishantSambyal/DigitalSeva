@@ -33,9 +33,9 @@ export const baseColors = {
 
 export const baseColorsConsumer = {
   default: '#172b4d',
-  blue: '#D43653',
+  blue: '#54ABD9',
   lightblue: '#FAE7EA',
-  colorPrimaryDark: '#D43653',
+  colorPrimaryDark: '#145DA0',
   white: '#FFFFFF',
   textColor: '#333333',
   red: '#D43653',

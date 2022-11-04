@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { theme } from 'src/theme';
 export default () =>
   StyleSheet.create({
     mainContainer: {
@@ -21,5 +22,5 @@ export default () =>
     passwordView: { marginTop: 20 },
     loginButton: { marginTop: 60 },
     bottomText: { textAlign: 'center', marginTop: 25 },
-    createOne: { color: 'red', fontWeight: 'bold' },
+    createOne: { color: theme.colors.colorPrimaryDark, fontWeight: 'bold' },
   });

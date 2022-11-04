@@ -31,7 +31,7 @@ const Login = () => {
   return (
     <View style={styles.mainContainer}>
       <StatusBar
-        barStyle="dark-content"
+        barStyle="default"
         backgroundColor={theme.colors.colorPrimaryDark}
       />
       <ScrollView contentContainerStyle={styles.styleView}>
