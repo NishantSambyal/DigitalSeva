@@ -24,6 +24,14 @@ export const callSliderApi = async () => {
   });
 };
 
+export const referAndEarn = async data => {
+  return Request.request({
+    url: `${BASE_URL}share-earn`,
+    method: 'POST',
+    data,
+  });
+};
+
 export const getMyProfile = async user_id => {
   return Request.request({
     url: `${BASE_URL}show-profile/${user_id}`,

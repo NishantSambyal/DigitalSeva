@@ -9,6 +9,7 @@ export enum LoginActionType {
 
 export enum DashboardActionType {
   SLIDER_API = 'SLIDER_API',
+  REFER_AND_EARN = 'REFER_AND_EARN',
 }
 
 export enum ProfileActionType {

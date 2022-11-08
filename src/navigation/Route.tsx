@@ -49,6 +49,10 @@ const Route = () => {
           name="UploadDocument"
           component={HomeScreens.UploadDocument}
         />
+        <Stack.Screen
+          name="ReferAndEarn"
+          component={HomeScreens.ReferAndEarn}
+        />
       </>
     );
   };

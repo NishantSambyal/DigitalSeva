@@ -8,6 +8,7 @@ const logo = require('./logo.png');
 const pan = require('./pan.png');
 const papers = require('./papers.png');
 const pdf = require('./pdf.png');
+const referEarnImg = require('./refer-and-earn.png');
 const script = require('./script.png');
 const smartphone = require('./smartphone.png');
 const stamp = require('./stamp.png');
@@ -29,4 +30,5 @@ export {
   smartphone,
   upload,
   logo,
+  referEarnImg,
 };

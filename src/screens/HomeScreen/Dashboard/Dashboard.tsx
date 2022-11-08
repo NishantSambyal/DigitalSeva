@@ -16,7 +16,7 @@ import {
 } from 'src/assets/images';
 import { BaseScreen, TextView } from 'src/components';
 import useMyNavigation from 'src/helpers/useNavigation';
-import { DashboardActions } from 'src/store/actions/dashboard.actions';
+import { DashboardActions } from 'src/store/actions/Dashboard/dashboard.actions';
 import { RootState } from 'src/store/reducers';
 import { useStyles } from 'src/theme';
 import style from './styles';

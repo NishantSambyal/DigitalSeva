@@ -27,6 +27,10 @@ const CustomDrawer = props => {
     navigation.navigate('MyProfile');
     navigation.dispatch(DrawerActions.closeDrawer());
   };
+  const referEarnClickHandler = () => {
+    navigation.navigate('ReferAndEarn');
+    navigation.dispatch(DrawerActions.closeDrawer());
+  };
   return (
     <View style={styles.mainContainer}>
       <DrawerContentScrollView
@@ -50,7 +54,9 @@ const CustomDrawer = props => {
         </View>
       </DrawerContentScrollView>
       <View style={styles.bottomOptionWrapper}>
-        <TouchableOpacity style={styles.bottomOptionText}>
+        <TouchableOpacity
+          onPress={referEarnClickHandler}
+          style={styles.bottomOptionText}>
           <TextView>Refer and Earn</TextView>
         </TouchableOpacity>
         <TouchableOpacity style={styles.bottomOptionText} onPress={logoutUser}>

@@ -7,6 +7,11 @@ const initialState = {
     loading: false,
     error: null,
   },
+  referAndEarn: {
+    data: {},
+    loading: false,
+    error: null,
+  },
 };
 
 const DashboardReducer = (state = initialState, action) => {
@@ -30,6 +35,26 @@ const DashboardReducer = (state = initialState, action) => {
         failure: prevState => ({
           ...prevState,
           sliderData: { loading: false, data: payload },
+        }),
+      });
+    }
+    case DashboardActionType.REFER_AND_EARN: {
+      return handleData(state, action, {
+        request: prevState => ({
+          ...prevState,
+          referAndEarn: { loading: true },
+        }),
+        success: prevState => ({
+          ...prevState,
+          referAndEarn: {
+            loading: false,
+            data: payload,
+            // error: null,
+          },
+        }),
+        failure: prevState => ({
+          ...prevState,
+          referAndEarn: { loading: false, data: payload },
         }),
       });
     }
