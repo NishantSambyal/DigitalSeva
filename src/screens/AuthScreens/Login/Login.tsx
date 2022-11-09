@@ -1,21 +1,23 @@
 import { useNavigation } from '@react-navigation/native';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Image, StatusBar, TouchableOpacity, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { useDispatch, useSelector } from 'react-redux';
 import { logo } from 'src/assets/images';
-import { Button, EditText, TextView } from 'src/components';
+import { AlertDialog, Button, EditText, TextView } from 'src/components';
 import { ActivitiesStack } from 'src/navigation/types';
 import { LoginActions } from 'src/store/actions/login.actions';
 import { RootState } from 'src/store/reducers';
 import { useStyles, useTheme } from 'src/theme';
+import { LoginData } from './TsObject/LoginResponse';
 import style from './styles';
 
 const Login = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
   const styles = useStyles(style);
-  const loginReducer = useSelector(
+  const [alert, showAlert] = useState<boolean>(false);
+  const loginReducer: LoginData = useSelector(
     (state: RootState) => state.loginReducer?.loginData,
   );
   const navigation = useNavigation<ActivitiesStack>();
@@ -28,6 +30,17 @@ const Login = () => {
     payload.append('password', password);
     dispatch(LoginActions.loginUser(payload));
   };
+  useEffect(() => {
+    if (!loginReducer.data?.status) {
+      showAlert(true);
+    }
+  }, [loginReducer.data?.status]);
+
+  const handleDialog = () => {
+    showAlert(false);
+    dispatch(LoginActions.clearReducer());
+  };
+
   return (
     <View style={styles.mainContainer}>
       <StatusBar
@@ -72,6 +85,15 @@ const Login = () => {
               </TouchableOpacity>
             </TextView>
           </View>
+          {alert && (
+            <AlertDialog
+              visibility={alert}
+              setVisibility={showAlert}
+              success={loginReducer.data?.status}
+              description={loginReducer.data?.message}
+              alertHandler={handleDialog}
+            />
+          )}
         </View>
       </ScrollView>
     </View>
