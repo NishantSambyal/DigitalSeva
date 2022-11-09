@@ -53,6 +53,10 @@ const Route = () => {
           name="ReferAndEarn"
           component={HomeScreens.ReferAndEarn}
         />
+        <Stack.Screen
+          name="ChangePassword"
+          component={HomeScreens.ChangePassword}
+        />
       </>
     );
   };

@@ -1,5 +1,6 @@
 /* eslint @typescript-eslint/no-var-requires: "off" */
 const cancel = require('./cancel.png');
+const changePassword = require('./change-password.png');
 const checked = require('./checked.png');
 const cv = require('./cv.png');
 const id = require('./id.png');
@@ -31,4 +32,5 @@ export {
   upload,
   logo,
   referEarnImg,
+  changePassword,
 };

@@ -23,20 +23,18 @@ const CustomDrawer = props => {
   const logoutUser = () => {
     dispatch(LoginActions.clearReducer());
   };
-  const profileClickHandler = () => {
-    navigation.navigate('MyProfile');
+
+  const navigateTo = screen => {
+    navigation.navigate(screen);
     navigation.dispatch(DrawerActions.closeDrawer());
   };
-  const referEarnClickHandler = () => {
-    navigation.navigate('ReferAndEarn');
-    navigation.dispatch(DrawerActions.closeDrawer());
-  };
+
   return (
     <View style={styles.mainContainer}>
       <DrawerContentScrollView
         {...props}
         contentContainerStyle={styles.containerStyle}>
-        <TouchableOpacity onPress={profileClickHandler}>
+        <TouchableOpacity onPress={() => navigateTo('MyProfile')}>
           <View style={styles.profileView}>
             <TextView style={styles.nameTitle}>
               {loginReducer.data.user_info?.name}
@@ -55,7 +53,12 @@ const CustomDrawer = props => {
       </DrawerContentScrollView>
       <View style={styles.bottomOptionWrapper}>
         <TouchableOpacity
-          onPress={referEarnClickHandler}
+          onPress={() => navigateTo('ChangePassword')}
+          style={styles.bottomOptionText}>
+          <TextView>Change Password</TextView>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigateTo('ReferAndEarn')}
           style={styles.bottomOptionText}>
           <TextView>Refer and Earn</TextView>
         </TouchableOpacity>

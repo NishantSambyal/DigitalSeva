@@ -32,6 +32,14 @@ export const referAndEarn = async data => {
   });
 };
 
+export const changePassword = async (user_id, data) => {
+  return Request.request({
+    url: `${BASE_URL}change-password/${user_id}`,
+    method: 'POST',
+    data,
+  });
+};
+
 export const getMyProfile = async user_id => {
   return Request.request({
     url: `${BASE_URL}show-profile/${user_id}`,

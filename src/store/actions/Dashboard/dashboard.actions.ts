@@ -1,4 +1,8 @@
-import { callSliderApi, referAndEarn } from 'src/network/request';
+import {
+  callSliderApi,
+  changePassword,
+  referAndEarn,
+} from 'src/network/request';
 import { DashboardActionType } from '../actionTypes';
 
 export class DashboardActions {
@@ -20,5 +24,18 @@ export class DashboardActions {
         return referAndEarn(data);
       },
     };
+  };
+
+  static changePassword = (user_id, data): any => {
+    return {
+      isAsyncCall: true,
+      baseType: DashboardActionType.CHANGE_PASSWORD,
+      asyncCall: () => {
+        return changePassword(user_id, data);
+      },
+    };
+  };
+  static clearPassword = (): any => dispatch => {
+    dispatch({ type: DashboardActionType.CLEAR_CHANGE_PASSWORD });
   };
 }

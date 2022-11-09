@@ -8,6 +8,7 @@ export type RootStackProps = {
   Register;
   MyProfile;
   ReferAndEarn;
+  ChangePassword;
 };
 
 export type ActivitiesStack = NativeStackNavigationProp<RootStackProps>;

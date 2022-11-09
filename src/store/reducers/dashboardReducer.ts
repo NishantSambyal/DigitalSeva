@@ -12,6 +12,11 @@ const initialState = {
     loading: false,
     error: null,
   },
+  changePassword: {
+    data: {},
+    loading: false,
+    error: null,
+  },
 };
 
 const DashboardReducer = (state = initialState, action) => {
@@ -57,6 +62,32 @@ const DashboardReducer = (state = initialState, action) => {
           referAndEarn: { loading: false, data: payload },
         }),
       });
+    }
+    case DashboardActionType.CHANGE_PASSWORD: {
+      return handleData(state, action, {
+        request: prevState => ({
+          ...prevState,
+          changePassword: { loading: true },
+        }),
+        success: prevState => ({
+          ...prevState,
+          changePassword: {
+            loading: false,
+            data: payload,
+            // error: null,
+          },
+        }),
+        failure: prevState => ({
+          ...prevState,
+          changePassword: { loading: false, data: payload },
+        }),
+      });
+    }
+    case DashboardActionType.CLEAR_CHANGE_PASSWORD: {
+      return {
+        ...state,
+        changePassword: initialState.changePassword,
+      };
     }
     default:
       return state;
