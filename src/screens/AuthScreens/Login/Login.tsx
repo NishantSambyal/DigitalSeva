@@ -21,8 +21,8 @@ const Login = () => {
     (state: RootState) => state.loginReducer?.loginData,
   );
   const navigation = useNavigation<ActivitiesStack>();
-  const [email, setEmail] = useState('nishantsambyal123@gmail.com');
-  const [password, setPassword] = useState('Pass@123');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const loginUser = () => {
     const payload = new FormData();
@@ -31,10 +31,10 @@ const Login = () => {
     dispatch(LoginActions.loginUser(payload));
   };
   useEffect(() => {
-    if (!loginReducer.data?.status) {
+    if (!loginReducer.data?.status && loginReducer.data?.message) {
       showAlert(true);
     }
-  }, [loginReducer.data?.status]);
+  }, [loginReducer.data?.status, loginReducer.data?.message]);
 
   const handleDialog = () => {
     showAlert(false);
