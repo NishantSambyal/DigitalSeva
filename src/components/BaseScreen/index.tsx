@@ -1,7 +1,7 @@
 import React from 'react';
-import { KeyboardAvoidingView, StatusBar, View } from 'react-native';
+import { StatusBar, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-// import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { useStyles, useTheme } from 'src/theme';
 import Header from '../Header';
 import stylesFn from './style';
@@ -43,18 +43,17 @@ const BaseScreen: React.FC<Props> = ({
       {disableScroll ? (
         children
       ) : (
-        // <KeyboardAwareScrollView
-        // extraHeight={'100%'}
-        // enableOnAndroid={true}
-        // keyboardShouldPersistTaps="handled"
-        // showsVerticalScrollIndicator={false}
-        // contentContainerStyle={styles.KeyboardAvoidingViewContainerStyle}
-        // style={styles.KeyboardAvoidingView}
-        // bounces={bounces}>
-        <KeyboardAvoidingView
-          behavior="padding"
+        <KeyboardAwareScrollView
+          enableOnAndroid={true}
+          keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.KeyboardAvoidingViewContainerStyle}
-          style={styles.KeyboardAvoidingView}>
+          style={styles.KeyboardAvoidingView}
+          bounces={false}>
+          {/* <KeyboardAvoidingView
+            behavior="padding"
+            contentContainerStyle={styles.KeyboardAvoidingViewContainerStyle}
+            style={styles.KeyboardAvoidingView}> */}
           <StatusBar
             barStyle="light-content"
             backgroundColor={theme.colors.colorPrimaryDark}
@@ -69,8 +68,8 @@ const BaseScreen: React.FC<Props> = ({
               {children}
             </ScrollView>
           </View>
-        </KeyboardAvoidingView>
-        // </KeyboardAwareScrollView>
+          {/* </KeyboardAvoidingView> */}
+        </KeyboardAwareScrollView>
       )}
     </View>
   );
