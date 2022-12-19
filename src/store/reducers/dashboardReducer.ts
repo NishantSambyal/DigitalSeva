@@ -17,6 +17,11 @@ const initialState = {
     loading: false,
     error: null,
   },
+  menu: {
+    data: {},
+    loading: false,
+    error: null,
+  },
 };
 
 const DashboardReducer = (state = initialState, action) => {
@@ -43,6 +48,28 @@ const DashboardReducer = (state = initialState, action) => {
         }),
       });
     }
+
+    case DashboardActionType.MENU_API: {
+      return handleData(state, action, {
+        request: prevState => ({
+          ...prevState,
+          menu: { loading: true },
+        }),
+        success: prevState => ({
+          ...prevState,
+          menu: {
+            loading: false,
+            data: payload,
+            // error: null,
+          },
+        }),
+        failure: prevState => ({
+          ...prevState,
+          menu: { loading: false, data: payload },
+        }),
+      });
+    }
+
     case DashboardActionType.REFER_AND_EARN: {
       return handleData(state, action, {
         request: prevState => ({

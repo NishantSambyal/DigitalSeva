@@ -1,3 +1,5 @@
+import type { Datum } from 'src/store/actions/Dashboard/menu';
+
 export interface SliderType {
   name: string;
   title: string;
@@ -5,3 +7,7 @@ export interface SliderType {
   link: string;
   image: string;
 }
+
+export type RowMenuProps = {
+  obj: Datum;
+};

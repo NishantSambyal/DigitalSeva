@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { verticalScale } from 'src/helpers/basicStyles';
 // import {verticalScale} from 'src/helpers/basicStyles';
 import { Theme } from 'src/theme';
 
@@ -9,7 +10,7 @@ export default (theme: Theme) =>
     },
     contentView: {
       flex: 1,
-      // paddingBottom: verticalScale(30),
+      paddingBottom: verticalScale(30),
     },
     scrollContainer: { flexGrow: 1 },
     container: {

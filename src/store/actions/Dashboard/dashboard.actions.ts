@@ -1,4 +1,5 @@
 import {
+  callMenuApi,
   callSliderApi,
   changePassword,
   referAndEarn,
@@ -12,6 +13,16 @@ export class DashboardActions {
       baseType: DashboardActionType.SLIDER_API,
       asyncCall: () => {
         return callSliderApi();
+      },
+    };
+  };
+
+  static callMenuApi = (): any => {
+    return {
+      isAsyncCall: true,
+      baseType: DashboardActionType.MENU_API,
+      asyncCall: () => {
+        return callMenuApi();
       },
     };
   };

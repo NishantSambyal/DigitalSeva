@@ -8,15 +8,18 @@ import { Theme } from 'src/theme';
 
 export default (theme: Theme) =>
   StyleSheet.create({
-    mainContainer: {
+    flex: {
       flex: 1,
+    },
+    mainContainer: {
       marginHorizontal: horizontalScale(16),
     },
     contentStyle: {
       paddingHorizontal: 16,
     },
     flexRow: {
-      flexDirection: 'row',
+      // flexDirection: 'row',
+      borderWidth: 1,
     },
     categoryView: {
       backgroundColor: '#2596be',
@@ -48,6 +51,10 @@ export default (theme: Theme) =>
       paddingBottom: verticalScale(16),
       borderRadius: 4,
     },
+    flatListContentContainer: {
+      justifyContent: 'space-around',
+      flex: 1,
+    },
     titleText: {
       fontSize: fontScale(15),
       fontWeight: 'bold',
@@ -58,6 +65,9 @@ export default (theme: Theme) =>
       width: horizontalScale(45),
       height: verticalScale(60),
     },
+    tileView: {
+      width: horizontalScale(100),
+    },
     iconContainer: {
       flex: 1,
       alignItems: 'center',
@@ -67,5 +77,6 @@ export default (theme: Theme) =>
       textAlign: 'center',
       fontSize: fontScale(10),
       fontWeight: 'bold',
+      marginHorizontal: horizontalScale(10),
     },
   });

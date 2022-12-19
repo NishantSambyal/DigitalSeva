@@ -9,6 +9,7 @@ export enum LoginActionType {
 
 export enum DashboardActionType {
   SLIDER_API = 'SLIDER_API',
+  MENU_API = 'MENU_API',
   REFER_AND_EARN = 'REFER_AND_EARN',
   CHANGE_PASSWORD = 'CHANGE_PASSWORD',
   CLEAR_CHANGE_PASSWORD = 'CLEAR_CHANGE_PASSWORD',

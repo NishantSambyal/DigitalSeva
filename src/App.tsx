@@ -1,5 +1,6 @@
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import React, { useEffect } from 'react';
+import { Platform } from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -10,7 +11,7 @@ import { ThemeProvider } from './theme';
 function App() {
   useEffect(() => {
     setTimeout(() => {
-      SplashScreen.hide();
+      Platform.OS === 'android' && SplashScreen.hide();
     }, 5000);
   }, []);
   return (

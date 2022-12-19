@@ -24,6 +24,13 @@ export const callSliderApi = async () => {
   });
 };
 
+export const callMenuApi = async () => {
+  return Request.request({
+    url: `${BASE_URL}products`,
+    method: 'GET',
+  });
+};
+
 export const referAndEarn = async data => {
   return Request.request({
     url: `${BASE_URL}share-earn`,

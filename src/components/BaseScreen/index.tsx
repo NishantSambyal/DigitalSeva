@@ -44,7 +44,7 @@ const BaseScreen: React.FC<Props> = ({
         children
       ) : (
         <KeyboardAwareScrollView
-          enableOnAndroid={true}
+          // enableOnAndroid={true}
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.KeyboardAvoidingViewContainerStyle}
