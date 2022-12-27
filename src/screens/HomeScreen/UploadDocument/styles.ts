@@ -13,7 +13,7 @@ export default (theme: Theme) =>
       backgroundColor: theme.colors.blue,
     },
     topContainer: {
-      flex: 0.2,
+      flex: 0.1,
       alignItems: 'center',
     },
     uploadTitle: {
@@ -37,5 +37,32 @@ export default (theme: Theme) =>
     },
     bottomSafeAreaView: {
       margin: verticalScale(20),
+    },
+    flexRow: {
+      flexDirection: 'row',
+      marginVertical: verticalScale(5),
+    },
+    uploadDocDescription: {
+      marginLeft: horizontalScale(10),
+    },
+    imageIcon: {
+      width: horizontalScale(60),
+      height: horizontalScale(60),
+    },
+    bottomWrapper: {
+      marginTop: verticalScale(20),
+    },
+    uploadNameTitle: {
+      fontSize: fontScale(22),
+      fontWeight: 'bold',
+    },
+    uploadButton: {
+      backgroundColor: '#bbcc00',
+      height: 60,
+      justifyContent: 'center',
+    },
+    uploadButtonText: {
+      fontSize: 18,
+      marginLeft: 10,
     },
   });

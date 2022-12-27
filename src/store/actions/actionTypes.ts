@@ -21,3 +21,7 @@ export enum ProfileActionType {
   GET_CITY = 'GET_CITY',
   UPDATE_PROFILE = 'UPDATE_PROFILE',
 }
+
+export enum UploadActionType {
+  GET_DOCUMENT_DETAIL = 'GET_DOCUMENT_DETAIL',
+}

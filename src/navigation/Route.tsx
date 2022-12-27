@@ -21,7 +21,7 @@ const Route = () => {
 
   const theme = useTheme();
 
-  const renderDrawerScreens = () => {
+  const RenderDrawerScreens = () => {
     return (
       <>
         <Drawer.Navigator
@@ -43,7 +43,7 @@ const Route = () => {
   const renderHomeStack = () => {
     return (
       <>
-        <Stack.Screen name="Home" component={renderDrawerScreens} />
+        <Stack.Screen name="Home" component={RenderDrawerScreens} />
         <Stack.Screen name="MyProfile" component={HomeScreens.MyProfile} />
         <Stack.Screen
           name="UploadDocument"

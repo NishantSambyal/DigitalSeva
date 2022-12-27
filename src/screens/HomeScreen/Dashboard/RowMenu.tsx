@@ -17,7 +17,11 @@ const RowMenu: React.FC<RowMenuProps> = ({ obj }) => {
         <View style={styles.tileView}>
           <TouchableOpacity
             style={styles.iconContainer}
-            onPress={() => navigation.navigate('UploadDocument')}>
+            onPress={() =>
+              navigation.navigate('UploadDocument', {
+                productID: item.product_id,
+              })
+            }>
             <Image
               source={{ uri: item.icon }}
               style={styles.icon}

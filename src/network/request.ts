@@ -82,3 +82,10 @@ export const updateProfile = async (user_id, data) => {
     data,
   });
 };
+
+export const getDocumentDetail = async id => {
+  return Request.request({
+    url: `${BASE_URL}product/${id}`,
+    method: 'GET',
+  });
+};
