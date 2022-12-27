@@ -2,7 +2,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 export type RootStackProps = {
   Dashboard;
-  UploadDocument;
+  UploadDocument: { productID: number };
   Home;
   Login;
   Register;

@@ -1,4 +1,4 @@
-import { useRoute } from '@react-navigation/native';
+import { RouteProp, useRoute } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
 import { Image, View } from 'react-native';
 import { pickSingle, types } from 'react-native-document-picker';
@@ -17,9 +17,14 @@ export type DocumentType = {
   size: number | null;
   uri: string;
 };
+type ParamList = {
+  UploadDocument: {
+    productID: number;
+  };
+};
 const UploadDocument = () => {
   const styles = useStyles(style);
-  const route = useRoute();
+  const route = useRoute<RouteProp<ParamList, 'UploadDocument'>>();
   const dispatch = useDispatch();
   const [documentList, setDocumentList] = useState<Array<DocumentType>>([]);
 
@@ -30,7 +35,7 @@ const UploadDocument = () => {
         size: res.size,
         uri: res.uri,
       };
-      setDocumentList((arr: DocumentType) => [...arr, document]);
+      setDocumentList((arr: DocumentType[]) => [...arr, document]);
     });
   };
 
